@@ -1,0 +1,63 @@
+/* Layout básico */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.6;
+  color: #222;
+}
+
+.container { max-width: 900px; margin: 0 auto; padding: 16px; }
+
+/* Header / Nav */
+.top { background: #f4f4f4; border-bottom: 1px solid #e5e5e5; }
+.nav { display: flex; gap: 12px; padding: 8px 16px; }
+.nav a { text-decoration: none; color: #0a58ca; }
+.nav a:hover { text-decoration: underline; }           /* :hover */
+
+/* Tipografía */
+h1 { font-size: 28px; margin: 16px 0 8px; }
+h2 { font-size: 18px; color: #444; margin: 8px 0; }
+h3 { font-size: 16px; margin: 8px 0; }
+.meta { color: #666; font-size: 14px; }
+blockquote { margin: 12px 0; padding-left: 12px; border-left: 3px solid #ddd; }
+
+/* Enlaces */
+a[target="_blank"] {                                   /* selector por atributo */
+  color: #0a58ca;
+}
+
+/* Formulario */
+form {
+  display: grid;
+  gap: 8px;
+  max-width: 400px;
+  margin: 16px 0 32px;
+}
+label { display: block; }
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+input:focus { outline: 2px solid #cfe2ff; }           /* :focus */
+button {
+  padding: 10px 14px;
+  border: 0;
+  background: #0a58ca;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover { background: #084cb0; }
+
+/* Footer */
+.foot { padding: 16px; text-align: center; background: #f9f9f9; border-top: 1px solid #eee; }
+
+/* Media query básica (opcional) */
+@media (max-width: 600px) {
+  h1 { font-size: 24px; }
+  .container { padding: 12px; }
+}
