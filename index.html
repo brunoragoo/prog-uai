@@ -1,40 +1,68 @@
-<!doctype html> 
+<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Escándalo en el US Open</title>
+
+  <!-- CSS básico -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <h1>Escándalo en el US Open: un fotógrafo interrumpió el partido y Medvedev estalló contra el juez</h1>
+  <header class="top">
+    <nav class="nav">
+      <a href="#noticia">Noticia</a>
+      <a href="#suscripcion">Suscripción</a>
+    </nav>
+  </header>
 
-  <h2>El francés Benjamin Bonzi se impuso sobre el ruso 6-3, 7-5, 6-7 (5), 0-6 y 6-4; un fotorreportero se metió en la cancha durante el match point</h2>
+  <main class="container">
+    <article id="noticia">
+      <h1>Escándalo en el US Open: un fotógrafo interrumpió el partido y Medvedev estalló contra el juez</h1>
 
-  <h3>25 de agosto de 2025</h3>
-  <h3>08:17</h3>
-  <h3>3 minutos de lectura</h3>
-  <h3>LA NACION</h3>
+      <h2>El francés Benjamin Bonzi se impuso sobre el ruso 6-3, 7-5, 6-7 (5), 0-6 y 6-4; un fotorreportero se metió en la cancha durante el match point</h2>
 
-  <h2>La primera ronda del US Open tuvo un episodio insólito durante el partido entre Daniil Medvedev y Benjamin Bonzi, que terminó con la eliminación del ruso.</h2>
-  <h3>La irrupción de un fotógrafo a un costado de la cancha generó abucheos desde las tribunas, un retraso de más de seis minutos y la furiosa reacción del exnúmero uno del mundo.</h3>
+      <p class="meta">
+        <time datetime="2025-08-25">25 de agosto de 2025</time> — 08:17 — 3 min — <span>LA NACION</span>
+      </p>
 
-  <h2>El incidente ocurrió en el estadio Louis Armstrong, cuando Bonzi se imponía 5-4 en el tercer set.</h2>
-  <h3>Tras fallar el primer servicio, un fotógrafo dejó la posición en la que estaba en pleno match point y comenzó a caminar por el lado de la cancha. El juez Greg Allensworth le ordenó retirarse y, acto seguido, le concedió al francés repetir el primer saque debido al retraso. Medvedev estalló contra la decisión arbitral y se acercó a la silla para quejarse de la decisión.</h3>
+      <p>La primera ronda del US Open tuvo un episodio insólito durante el partido entre Daniil Medvedev y Benjamin Bonzi, que terminó con la eliminación del ruso…</p>
 
-  <h3>“¡Quiere irse a casa, chicos! No le gusta estar aquí. Le pagan por partido, ¡no por hora!”, gritó el ruso a los micrófonos situados detrás de la silla, en referencia al árbitro. Más tarde, en conferencia, aclaró: “No estaba molesto con el fotógrafo, sino con la decisión. El retraso fue de cuatro segundos y medio, no creo que eso justifique repetir el servicio”.</h3>
+      <p>El incidente ocurrió en el estadio Louis Armstrong… El juez Greg Allensworth le ordenó retirarse… Medvedev estalló contra la decisión arbitral…</p>
 
-  <h3>Con gestos de ironía y bronca, Medvedev agitó al público, que respondió con abucheos y pulgares hacia abajo. Bonzi, desconcertado, observaba mientras la tensión retrasaba el juego, que se demoró más de seis minutos entre puntos. Finalmente, el francés cerró el partido con parciales de 6-3, 7-5, 6-7 (5), 0-6 y 6-4, en lo que definió como “la mejor victoria” de su carrera.</h3>
+      <blockquote>“¡Quiere irse a casa, chicos! … ¡no por hora!”</blockquote>
 
-  <h3>“Fue un partido loco”, resumió Bonzi. “La regla es clara: si alguien entra en la cancha entre dos servicios, se repite el primero. No era mi decisión. Daniil empezó y echó leña al fuego”, señaló sobre la polémica.</h3>
+      <p>Finalmente, el francés cerró el partido con parciales de <strong>6-3, 7-5, 6-7 (5), 0-6 y 6-4</strong>…</p>
 
-  <h3>Un portavoz de la Asociación de Tenis de Estados Unidos informó que el fotógrafo fue escoltado fuera del estadio y se le revocó la acreditación al torneo.</h3>
+      <h3>Los antecedentes del polémico Medvedev</h3>
+      <p>No es la primera vez que Medvedev queda envuelto en un escándalo en el US Open…</p>
 
-  <h2>Los antecedentes del polémico Medvedev</h2>
+      <p class="fuente">Fuente: <a href="#" target="_blank" rel="noopener">Noticia original</a></p>
+    </article>
 
-  <h3>No es la primera vez que Medvedev queda envuelto en un escándalo en el US Open. En 2019, también en el Louis Armstrong, fue multado con 9000 dólares tras arrebatarle la toalla a un alcanzapelotas, lanzar su raqueta en dirección al juez Damien Dumusois y dedicarle un gesto obsceno al pasar junto a la silla.</h3>
+    <section id="suscripcion">
+      <h2>Suscribite</h2>
+      <form action="#" method="post">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" type="text" required>
 
-  <h3>En esa ocasión, el ruso había respondido a los abucheos diciendo que lo inspiraban a jugar mejor.</h3><br>
+        <label for="email">Correo</label>
+        <input id="email" name="email" type="email" required>
 
+        <label>
+          <input type="checkbox" name="acepto" required> Acepto la política de privacidad
+        </label>
 
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <small>&copy; 2025</small>
+  </footer>
 </body>
 </html>
+
