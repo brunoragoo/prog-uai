@@ -1,68 +1,148 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Escándalo en el US Open</title>
-
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DIARIO RAGO — Portada</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <!-- Header -->
+  <header class="top" role="banner">
+    <div class="top__bar container">
+      <div class="brand">
+        <a class="brand__name" href="#" aria-label="Ir a la portada">DIARIO RAGO</a>
+        <time class="brand__date" datetime="2025-09-29">Lunes 29 de septiembre de 2025</time>
+      </div>
 
-  <header class="top">
-    <nav class="nav">
-    <a href="#">Inicio</a>
-    <a href="#">Noticias</a>
-    <a href="#">Contacto</a>
-    </nav>
+      <!-- Menú hamburguesa (solo visible en mobile, sin JS) -->
+      <button class="menu-hamburguesa" aria-label="Abrir menú de navegación" aria-controls="site-nav" aria-expanded="false">☰</button>
+
+      <!-- Menú principal -->
+      <nav id="site-nav" class="nav" aria-label="Secciones del diario">
+        <a href="#">Inicio</a>
+        <a href="#">Últimas</a>
+        <a href="#">Deportes</a>
+        <a href="#">Política</a>
+        <a href="#">Economía</a>
+        <a href="#">Tecnología</a>
+        <a href="#">Espectáculos</a>
+        <a href="#">Contacto</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="container">
-    <article id="noticia">
-      <h1>Escándalo en el US Open: un fotógrafo interrumpió el partido y Medvedev estalló contra el juez</h1>
+  <!-- Cintillo publicitario -->
+  <aside class="ad ad--leaderboard container" aria-label="Publicidad">
+    <img src="img/ad-728x90.png" alt="Publicidad 728x90" />
+  </aside>
 
-      <h2>El francés Benjamin Bonzi se impuso sobre el ruso 6-3, 7-5, 6-7 (5), 0-6 y 6-4; un fotorreportero se metió en la cancha durante el match point</h2>
+  <!-- Contenido principal -->
+  <main class="container layout" role="main">
+    <!-- Columna principal -->
+    <section class="main-col">
+      <!-- Noticia principal -->
+      <article class="card card--lead" id="noticia">
+        <a class="card__media" href="#">
+          <img src="img/us-open.png" alt="Medvedev discute con el juez en el US Open" />
+        </a>
+        <div class="card__body">
+          <h1 class="card__title">
+            Escándalo en el US Open: un fotógrafo interrumpió el partido y Medvedev estalló contra el juez
+          </h1>
+          <h2 class="card__subtitle">
+            Benjamin Bonzi venció al ruso 6-3, 7-5, 6-7 (5), 0-6 y 6-4; un fotorreportero ingresó a la cancha durante el match point
+          </h2>
+          <p class="meta">
+            <time datetime="2025-08-25">25 de agosto de 2025</time> — 08:17 — 3 min — <span>La Nación</span>
+          </p>
+          <p>
+            La primera ronda del US Open tuvo un episodio insólito durante el partido entre Daniil Medvedev y Benjamin Bonzi, que terminó con la eliminación del ruso…
+          </p>
+          <p>
+            El incidente ocurrió en el estadio Louis Armstrong… El juez Greg Allensworth le ordenó retirarse… Medvedev estalló contra la decisión arbitral…
+          </p>
+          <p>
+            “¡Quiere irse a casa, chicos! No le gusta estar aquí. Le pagan por partido, ¡no por hora!”… Más tarde aclaró: “No estaba molesto con el fotógrafo…”.
+          </p>
+          <p>Finalmente, el francés cerró el partido con parciales de <strong>6-3, 7-5, 6-7 (5), 0-6 y 6-4</strong>…</p>
+          <p class="fuente">Fuente: <a href="#" target="_blank" rel="noopener">Noticia original</a></p>
+        </div>
+      </article>
 
-      <p class="meta">
-        <time datetime="2025-08-25">25 de agosto de 2025</time> — 08:17 — 3 min — <span>LA NACION</span>
-      </p>
+      <!-- Bloque de secundarias (solo texto) -->
+      <section class="grid grid--secundarias" aria-label="Noticias secundarias">
+        <!-- Secundaria -->
+        <article class="card card--secondary">
+          <div class="card__body">
+            <h3 class="card__title"><a href="#">El ranking ATP tras el US Open: cambios en el Top 10</a></h3>
+            <p class="card__excerpt">La derrota de Medvedev y la actuación de Bonzi reacomodan posiciones claves de cara a la gira asiática…</p>
+          </div>
+        </article>
 
-      <img src="img/us-open.png" alt="Portada del articulo">
+        <!-- Secundaria solo título -->
+        <article class="card card--linkonly">
+          <h3 class="card__title"><a href="#">Canchas techadas: la USTA acelera su plan de renovación</a></h3>
+          <p class="meta">2 min • Deportes</p>
+        </article>
 
-      <p>La primera ronda del US Open tuvo un episodio insólito durante el partido entre Daniil Medvedev y Benjamin Bonzi, que terminó con la eliminación del ruso…</p>
+        <!-- Secundaria -->
+        <article class="card card--secondary">
+          <div class="card__body">
+            <h3 class="card__title"><a href="#">Así se vivió la jornada nocturna en Flushing Meadows</a></h3>
+            <p class="card__excerpt">Ambientazo, récord de asistentes y un cierre polémico que encendió las redes…</p>
+          </div>
+        </article>
 
-      <p>El incidente ocurrió en el estadio Louis Armstrong… El juez Greg Allensworth le ordenó retirarse… Medvedev estalló contra la decisión arbitral…</p>
-
-      <p>“¡Quiere irse a casa, chicos! No le gusta estar aquí. Le pagan por partido, ¡no por hora!”, gritó el ruso a los micrófonos situados detrás de la silla, en referencia al árbitro. Más tarde, en conferencia, aclaró: “No estaba molesto con el fotógrafo, sino con la decisión. El retraso fue de cuatro segundos y medio, no creo que eso justifique repetir el servicio”.</p>
-
-      <p>Finalmente, el francés cerró el partido con parciales de <strong>6-3, 7-5, 6-7 (5), 0-6 y 6-4</strong>…</p>
-
-      <h3>Los antecedentes del polémico Medvedev</h3>
-      <p>No es la primera vez que Medvedev queda envuelto en un escándalo en el US Open…</p>
-
-      <p class="fuente">Fuente: <a href="#" target="_blank" rel="noopener">Noticia original</a></p>
-    </article>
-
-    <section id="suscripcion">
-      <h2>Suscribite</h2>
-      <form action="#" method="post">
-        <label for="nombre">Nombre</label>
-        <input id="nombre" name="nombre" type="text" required>
-
-        <label for="email">Correo</label>
-        <input id="email" name="email" type="email" required>
-
-        <label>
-          <input type="checkbox" name="acepto" required> Acepto la política de privacidad
-        </label>
-
-        <button type="submit">Enviar</button>
-      </form>
+        <!-- Secundaria solo título -->
+        <article class="card card--linkonly">
+          <h3 class="card__title"><a href="#">La agenda de hoy: horarios y TV de los argentinos</a></h3>
+          <p class="meta">4 min • Guía</p>
+        </article>
+      </section>
     </section>
+
+    <!-- Sidebar (publicidad + suscripción) -->
+    <aside class="sidebar" aria-label="Barra lateral">
+      <section class="widget ad ad--rect">
+        <img src="img/ad-300x250.png" alt="Publicidad 300x250" />
+      </section>
+
+      <section id="suscripcion" class="widget">
+        <h2>Suscribite</h2>
+        <form action="#" method="post">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" required />
+
+          <label for="email">Correo</label>
+          <input id="email" name="email" type="email" required />
+
+          <label class="chk">
+            <input type="checkbox" name="acepto" required />
+            <span>Acepto la política de privacidad</span>
+          </label>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+
+      <section class="widget links">
+        <h2>Más leídas</h2>
+        <ul>
+          <li><a href="#">El tie-break más largo del torneo</a></li>
+          <li><a href="#">Análisis: ¿debe repetirse un punto por invasión?</a></li>
+          <li><a href="#">Galería: las mejores fotos del día</a></li>
+        </ul>
+      </section>
+    </aside>
   </main>
 
-
+  <!-- Footer -->
+  <footer class="foot" role="contentinfo">
+    <div class="container">
+      © 2025 Diario Rago — Todos los derechos reservados
+    </div>
+  </footer>
 </body>
 </html>
-
