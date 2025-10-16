@@ -42,14 +42,13 @@ a:hover { text-decoration: underline; }
   margin-left: auto;
   display: inline-block;
   padding: 8px 10px;
-  cursor: default; /* sin JS por consigna */
+  cursor: default; 
   font-size: 22px;
   background: transparent;
   border: 0;
 }
 
 .nav {
-  /* mobile: oculto; se verá en desktop */
   display: none;
   flex-wrap: wrap;
   gap: 12px;
@@ -57,13 +56,11 @@ a:hover { text-decoration: underline; }
 .nav a { padding: 8px 10px; border-radius: 6px; }
 .nav a:hover { background: #e9f2ff; }
 
-/* ========== Ads ========= */
+
 .ad { display: flex; justify-content: center; align-items: center; }
 .ad--leaderboard { padding: 8px 0; }
 .ad--rect img { border: 1px solid var(--line); border-radius: var(--radius); }
 
-/* ========== Layout principal ========= */
-/* Mobile first: columna única */
 .layout { display: flex; flex-direction: column; gap: 16px; }
 .main-col { display: flex; flex-direction: column; gap: 16px; }
 .sidebar { display: flex; flex-direction: column; gap: 16px; }
@@ -92,11 +89,11 @@ a:hover { text-decoration: underline; }
 .card--linkonly { padding: 12px 14px; }
 .card--linkonly .card__title { font-size: 1rem; margin: 0; }
 
-/* ========== Grids ========= */
+
 .grid { display: grid; gap: 16px; }
 .grid--secundarias { grid-template-columns: 1fr; }
 
-/* ========== Widgets ========= */
+
 .widget {
   background: var(--card);
   border: 1px solid var(--line);
@@ -105,7 +102,6 @@ a:hover { text-decoration: underline; }
 }
 .widget h2 { margin-top: 0; font-size: 1.1rem; }
 
-/* ========== Form ========= */
 form { display: grid; gap: 8px; }
 label { display: block; font-weight: 600; }
 input[type="text"], input[type="email"] {
@@ -119,10 +115,10 @@ button {
 }
 button:hover { background: var(--brand-2); }
 
-/* ========== Footer ========= */
+
 .foot { padding: 16px; text-align: center; background: #f9f9f9; border-top: 1px solid #eee; }
 
-/* ========== Media Queries ========= */
+
 /* Tablet */
 @media (min-width: 720px) {
   .container { padding: 20px; }
@@ -130,16 +126,15 @@ button:hover { background: var(--brand-2); }
   .grid--secundarias { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Desktop */
 @media (min-width: 1024px) {
   .brand__name { font-size: 1.5rem; }
   .brand__date { font-size: 1rem; }
 
-  /* Menú: barra horizontal en desktop */
+
   .menu-hamburguesa { display: none; }
   .nav { display: flex; margin-left: auto; }
 
-  /* Layout en dos columnas: contenido + sidebar */
+
   .layout {
     flex-direction: row;
     align-items: flex-start;
