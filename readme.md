@@ -1,0 +1,1 @@
+https://www.lanacion.com.ar/deportes/tenis/escandalo-en-el-us-open-un-fotografo-interrumpio-el-partido-y-medvedev-estallo-contra-el-juez-nid25082025/
