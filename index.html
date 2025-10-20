@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
+    /* ====== Estilos propios de la página / formulario ====== */
     .subscription {
       background: var(--card);
       border: 1px solid var(--line);
@@ -25,10 +26,72 @@
     .field.error .error-msg { display: block; }
     .field.error input { border-color: #b42318; }
     .actions { display: flex; justify-content: center; padding-top: 8px; }
+    .actions button[disabled] { opacity: .6; cursor: not-allowed; }
+
     @media (min-width: 1024px) {
       .form-grid { grid-template-columns: 1fr 1fr; }
       .span-2 { grid-column: 1 / -1; }
     }
+
+    /* ====== Modal accesible ====== */
+    .modal {
+      position: fixed; inset: 0;
+      display: none;
+      z-index: 9999;
+    }
+    .modal.is-open { display: block; }
+    .modal__backdrop {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,.5);
+    }
+    .modal__dialog {
+      position: relative;
+      margin: 8vh auto 0;
+      width: min(680px, 92vw);
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 35px rgba(0,0,0,.2);
+      padding: 16px 16px 12px;
+    }
+    .modal__header { display:flex; align-items:center; gap:10px; }
+    .modal__title {
+      margin: 0;
+      font-size: 1.2rem;
+      line-height: 1.2;
+    }
+    .modal__badge {
+      display:inline-flex; align-items:center; gap:6px;
+      border-radius: 999px; padding: 3px 10px; font-size:.85rem;
+    }
+    .badge--ok { background:#e7f5e7; color:#1b5e20; border:1px solid #cde9cd; }
+    .badge--err { background:#fdecea; color:#b3261e; border:1px solid #f4c7c3; }
+
+    .modal__close {
+      margin-left:auto;
+      border:0; background:transparent; font-size:22px; cursor:pointer;
+      line-height:1; padding:4px 8px; border-radius:8px;
+    }
+    .modal__close:hover { background:#f2f2f2; }
+
+    .modal__content {
+      margin-top: 10px;
+      background: #fafafa;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      max-height: 45vh; overflow: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .9rem; white-space: pre-wrap;
+    }
+    .modal__actions {
+      display:flex; justify-content:flex-end; gap:8px; margin-top:12px;
+    }
+    .modal__actions .btn {
+      padding: 10px 14px; border: 0; background: var(--brand);
+      color: #fff; border-radius: 8px; cursor: pointer;
+    }
+    .modal__actions .btn:hover { background: var(--brand-2); }
   </style>
 </head>
 <body>
@@ -125,70 +188,88 @@
         </form>
       </section>
     </section>
-        <!-- === NOTICIAS (mismo contenido que tu portada) === -->
-      <article class="card card--lead" id="noticia">
-        <a class="card__media" href="#">
-          <img src="img/us-open.png" alt="Medvedev discute con el juez en el US Open" />
-        </a>
+
+    <!-- === NOTICIAS (mismo contenido que tu portada) === -->
+    <article class="card card--lead" id="noticia">
+      <a class="card__media" href="#">
+        <img src="img/us-open.png" alt="Medvedev discute con el juez en el US Open" />
+      </a>
+      <div class="card__body">
+        <h1 class="card__title">
+          Escándalo en el US Open: un fotógrafo interrumpió el partido y Medvedev estalló contra el juez
+        </h1>
+        <h2 class="card__subtitle">
+          Benjamin Bonzi venció al ruso 6-3, 7-5, 6-7 (5), 0-6 y 6-4; un fotorreportero ingresó a la cancha durante el match point
+        </h2>
+        <p class="meta">
+          <time datetime="2025-08-25">25 de agosto de 2025</time> — 08:17 — 3 min — <span>La Nación</span>
+        </p>
+        <p>
+          La primera ronda del US Open tuvo un episodio insólito durante el partido entre Daniil Medvedev y Benjamin Bonzi, que terminó con la eliminación del ruso…
+        </p>
+        <p>
+          El incidente ocurrió en el estadio Louis Armstrong… El juez Greg Allensworth le ordenó retirarse… Medvedev estalló contra la decisión arbitral…
+        </p>
+        <p>
+          “¡Quiere irse a casa, chicos! No le gusta estar aquí. Le pagan por partido, ¡no por hora!”… Más tarde aclaró: “No estaba molesto con el fotógrafo…”.
+        </p>
+        <p>Finalmente, el francés cerró el partido con parciales de <strong>6-3, 7-5, 6-7 (5), 0-6 y 6-4</strong>…</p>
+        <p class="fuente">Fuente: <a href="#" target="_blank" rel="noopener">Noticia original</a></p>
+      </div>
+    </article>
+
+    <section class="grid grid--secundarias" aria-label="Noticias secundarias">
+      <article class="card card--secondary">
         <div class="card__body">
-          <h1 class="card__title">
-            Escándalo en el US Open: un fotógrafo interrumpió el partido y Medvedev estalló contra el juez
-          </h1>
-          <h2 class="card__subtitle">
-            Benjamin Bonzi venció al ruso 6-3, 7-5, 6-7 (5), 0-6 y 6-4; un fotorreportero ingresó a la cancha durante el match point
-          </h2>
-          <p class="meta">
-            <time datetime="2025-08-25">25 de agosto de 2025</time> — 08:17 — 3 min — <span>La Nación</span>
-          </p>
-          <p>
-            La primera ronda del US Open tuvo un episodio insólito durante el partido entre Daniil Medvedev y Benjamin Bonzi, que terminó con la eliminación del ruso…
-          </p>
-          <p>
-            El incidente ocurrió en el estadio Louis Armstrong… El juez Greg Allensworth le ordenó retirarse… Medvedev estalló contra la decisión arbitral…
-          </p>
-          <p>
-            “¡Quiere irse a casa, chicos! No le gusta estar aquí. Le pagan por partido, ¡no por hora!”… Más tarde aclaró: “No estaba molesto con el fotógrafo…”.
-          </p>
-          <p>Finalmente, el francés cerró el partido con parciales de <strong>6-3, 7-5, 6-7 (5), 0-6 y 6-4</strong>…</p>
-          <p class="fuente">Fuente: <a href="#" target="_blank" rel="noopener">Noticia original</a></p>
+          <h3 class="card__title"><a href="#">El ranking ATP tras el US Open: cambios en el Top 10</a></h3>
+          <p class="card__excerpt">La derrota de Medvedev y la actuación de Bonzi reacomodan posiciones claves de cara a la gira asiática…</p>
         </div>
       </article>
 
-      <section class="grid grid--secundarias" aria-label="Noticias secundarias">
-        <!-- Secundaria -->
-        <article class="card card--secondary">
-          <div class="card__body">
-            <h3 class="card__title"><a href="#">El ranking ATP tras el US Open: cambios en el Top 10</a></h3>
-            <p class="card__excerpt">La derrota de Medvedev y la actuación de Bonzi reacomodan posiciones claves de cara a la gira asiática…</p>
-          </div>
-        </article>
+      <article class="card card--linkonly">
+        <h3 class="card__title"><a href="#">Canchas techadas: la USTA acelera su plan de renovación</a></h3>
+        <p class="meta">2 min • Deportes</p>
+      </article>
 
-        <article class="card card--linkonly">
-          <h3 class="card__title"><a href="#">Canchas techadas: la USTA acelera su plan de renovación</a></h3>
-          <p class="meta">2 min • Deportes</p>
-        </article>
+      <article class="card card--secondary">
+        <div class="card__body">
+          <h3 class="card__title"><a href="#">Así se vivió la jornada nocturna en Flushing Meadows</a></h3>
+          <p class="card__excerpt">Ambientazo, récord de asistentes y un cierre polémico que encendió las redes…</p>
+        </div>
+      </article>
 
-        <article class="card card--secondary">
-          <div class="card__body">
-            <h3 class="card__title"><a href="#">Así se vivió la jornada nocturna en Flushing Meadows</a></h3>
-            <p class="card__excerpt">Ambientazo, récord de asistentes y un cierre polémico que encendió las redes…</p>
-          </div>
-        </article>
-
-        <article class="card card--linkonly">
-          <h3 class="card__title"><a href="#">La agenda de hoy: horarios y TV de los argentinos</a></h3>
-          <p class="meta">4 min • Guía</p>
-        </article>
-      </section>
+      <article class="card card--linkonly">
+        <h3 class="card__title"><a href="#">La agenda de hoy: horarios y TV de los argentinos</a></h3>
+        <p class="meta">4 min • Guía</p>
+      </article>
+    </section>
   </main>
 
   <footer class="foot" role="contentinfo">
     <div class="container">© 2025 Diario Rago — Todos los derechos reservados</div>
   </footer>
 
+  <!-- ====== MODAL ====== -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal__backdrop" data-close="1"></div>
+    <div class="modal__dialog" role="document">
+      <div class="modal__header">
+        <span id="modal-badge" class="modal__badge badge--ok">OK</span>
+        <h2 id="modal-title" class="modal__title">Resultado</h2>
+        <button id="modal-close" class="modal__close" aria-label="Cerrar">×</button>
+      </div>
+      <pre id="modal-content" class="modal__content"></pre>
+      <div class="modal__actions">
+        <button id="modal-ok" class="btn">Aceptar</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function(){
       const $ = (sel) => document.querySelector(sel);
+
+      // ====== Campos ======
       const nombre = $('#nombreCompleto');
       const email = $('#email');
       const password = $('#password');
@@ -199,9 +280,39 @@
       const ciudad = $('#ciudad');
       const cp = $('#cp');
       const dni = $('#dni');
+      const acepta = $('#acepto');
       const form = $('#subscription-form');
       const titulo = $('#form-title');
+      const btnEnviar = $('#btnEnviar');
 
+      // ====== Modal ======
+      const modal = $('#modal');
+      const modalTitle = $('#modal-title');
+      const modalContent = $('#modal-content');
+      const modalBadge = $('#modal-badge');
+      const closeBtn = $('#modal-close');
+      const okBtn = $('#modal-ok');
+
+      function openModal({title, content, ok=true}){
+        modalTitle.textContent = title || (ok ? 'Suscripción exitosa' : 'Error en la suscripción');
+        modalContent.textContent = typeof content === 'string' ? content : JSON.stringify(content, null, 2);
+        modalBadge.textContent = ok ? 'ÉXITO' : 'ERROR';
+        modalBadge.className = 'modal__badge ' + (ok ? 'badge--ok' : 'badge--err');
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        // Focus management simple
+        okBtn.focus();
+      }
+      function closeModal(){
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+      closeBtn.addEventListener('click', closeModal);
+      okBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e)=> { if (e.target.dataset.close) closeModal(); });
+      window.addEventListener('keydown', (e)=>{ if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
+
+      // ====== Helpers de error ======
       function setError(inputEl, msg){
         const field = inputEl.closest('.field');
         field?.classList.add('error');
@@ -214,6 +325,8 @@
         const small = field?.querySelector('.error-msg');
         if (small) small.textContent = '';
       }
+
+      // ====== Validaciones ======
       function validarNombre(v){
         v = v.trim();
         const lettersOnly = (v.normalize('NFD').replace(/[^\p{L}]/gu, ''));
@@ -279,38 +392,135 @@
         el.addEventListener('focus', () => clearError(el));
       });
 
+      // ====== Título dinámico con el nombre ======
       function actualizarTitulo(){
         const v = (nombre.value || '').trim();
         titulo.textContent = v ? `¡ENTÉRATE DE TODO AL ÚLTIMO MOMENTO, ${v.toUpperCase()}!` : '¡ENTÉRATE DE TODO AL ÚLTIMO MOMENTO!';
       }
-      nombre.addEventListener('keydown', () => setTimeout(actualizarTitulo, 0));
+      nombre.addEventListener('input', actualizarTitulo);
       nombre.addEventListener('focus', actualizarTitulo);
 
-      form.addEventListener('submit', (e) => {
+      // ====== LocalStorage: cargar valores previos si existen ======
+      const LS_KEY = 'ultSubscripcion';
+      function preCargarDesdeLS(){
+        try{
+          const raw = localStorage.getItem(LS_KEY);
+          if (!raw) return;
+          const data = JSON.parse(raw);
+          const req = data?.request || {};
+          // Sólo completamos campos "seguros" para precarga
+          nombre.value = req.nombreCompleto || '';
+          email.value = req.email || '';
+          telefono.value = req.telefono || '';
+          edad.value = req.edad || '';
+          direccion.value = req.direccion || '';
+          ciudad.value = req.ciudad || '';
+          cp.value = req.cp || '';
+          dni.value = req.dni || '';
+          actualizarTitulo();
+        } catch(e){ /* noop */ }
+      }
+      window.addEventListener('load', preCargarDesdeLS);
+
+      // ====== Submit con GET a JSONPlaceholder y Modal ======
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        // 1) Validar
         const errores = [];
         config.forEach(({el, fn}) => {
           const err = fn();
           if (err) { setError(el, err); errores.push(`${el.previousElementSibling?.textContent || el.name}: ${err}`); }
         });
+        if (!acepta.checked) {
+          errores.push('Política de privacidad: Debés aceptar la política de privacidad.');
+          setError(acepta, 'Debés aceptar la política de privacidad.');
+        } else {
+          clearError(acepta);
+        }
         if (errores.length) {
-          alert('Revisá los siguientes errores:\n\n' + errores.join('\n'));
+          openModal({
+            title: 'Revisá los errores',
+            content: 'Corregí lo siguiente:\n\n' + errores.join('\n'),
+            ok: false
+          });
           return;
         }
-        const resumen = [
-          `Nombre completo: ${nombre.value}`,
-          `Email: ${email.value}`,
-          `Teléfono: ${telefono.value}`,
-          `Edad: ${edad.value}`,
-          `Dirección: ${direccion.value}`,
-          `Ciudad: ${ciudad.value}`,
-          `Código Postal: ${cp.value}`,
-          `DNI: ${dni.value}`
-        ].join('\n');
-        alert('¡Suscripción enviada!\n\n' + resumen);
-        form.reset();
-        titulo.textContent = '¡ENTÉRATE DE TODO AL ÚLTIMO MOMENTO!';
-        setTimeout(() => { window.location.href = 'index.html?suscripto=1'; }, 100);
+
+        // 2) Recolectar datos y armar querystring (TODOS en la URL)
+        const payload = {
+          nombreCompleto: nombre.value.trim(),
+          email: email.value.trim(),
+          telefono: telefono.value.trim(),
+          password: password.value,       // (no recomendado en la vida real por GET, pero así lo pide la consigna)
+          password2: password2.value,
+          edad: edad.value.trim(),
+          direccion: direccion.value.trim(),
+          ciudad: ciudad.value.trim(),
+          cp: cp.value.trim(),
+          dni: dni.value.trim(),
+          accept: acepta.checked ? '1' : '0'
+        };
+        const params = new URLSearchParams(payload);
+        const url = `https://jsonplaceholder.typicode.com/posts?${params.toString()}`;
+
+        // 3) Enviar por GET y manejar éxito/fracaso
+        btnEnviar.disabled = true;
+        btnEnviar.textContent = 'Enviando...';
+
+        try{
+          const res = await fetch(url, { method: 'GET' });
+          const text = await res.text(); // puede venir como JSON o texto
+          let data;
+          try { data = JSON.parse(text); } catch { data = text; }
+
+          if (!res.ok) {
+            openModal({
+              title: `Error al suscribirse (HTTP ${res.status})`,
+              content: {
+                status: res.status,
+                statusText: res.statusText,
+                url: url,
+                body: data
+              },
+              ok: false
+            });
+            // No guardamos nada en LocalStorage si hay error
+            return;
+          }
+
+          // Éxito: guardamos en LocalStorage (request + response + timestamp)
+          const toSave = {
+            at: new Date().toISOString(),
+            request: payload,
+            response: data
+          };
+          try { localStorage.setItem(LS_KEY, JSON.stringify(toSave)); } catch(e){ /* storage lleno o bloqueado */ }
+
+          openModal({
+            title: '¡Suscripción exitosa!',
+            content: {
+              mensaje: 'Suscripción enviada correctamente.',
+              endpoint: url,
+              respuesta: data
+            },
+            ok: true
+          });
+
+          // Opcional: limpiar contraseñas y mantener el resto precargado para la próxima
+          password.value = '';
+          password2.value = '';
+
+        } catch (err){
+          openModal({
+            title: 'Error de red',
+            content: `No se pudo completar la solicitud.\nDetalle: ${err?.message || err}`,
+            ok: false
+          });
+        } finally {
+          btnEnviar.disabled = false;
+          btnEnviar.textContent = 'Enviar';
+        }
       });
     })();
   </script>
